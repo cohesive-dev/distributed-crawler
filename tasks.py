@@ -6,9 +6,7 @@ from parserlist import get_parser
 queue_name = 'celery'
 app = Celery(
     'tasks',
-    broker_url='redis://127.0.0.1:6379/1',
-    # result_backend='redis://127.0.0.1:6379/1',
-    # result_expires=30,
+    broker_url='redis://127.0.0.1:6379/1'
 )
 app_client = app.connection().channel().client
 

@@ -1,10 +1,9 @@
 from urllib.parse import urlparse
-from parsers import defaults, scrapemelive, quotestoscrape
+from parsers import defaults, crescentelectric
 
 
 parsers = {
-    'scrapeme.live': scrapemelive,
-    'quotes.toscrape.com': quotestoscrape,
+    'crescentelectric.com': crescentelectric
 }
 
 
