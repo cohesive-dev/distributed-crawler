@@ -1,18 +1,16 @@
 from tasks import queue_url
 import repo
+import logging
 
-
-# starting_url = 'https://scrapeme.live/shop/page/1/'
-# starting_url = 'http://quotes.toscrape.com/page/1/'
 starting_url = 'https://www.crescentelectric.com/'
-
 repo.add_to_visit(starting_url)
+maximum_items = 10
+logger = logging.getLogger(__name__)
 
-maximum_items = 20000
 while True:
     queued = repo.count_queued()
     visited = repo.count_visited()
-    total = queued + visited
+    total = queued
     print('Visited', visited)
     if total >= maximum_items:
         print('Exiting! Over maximum:', total)

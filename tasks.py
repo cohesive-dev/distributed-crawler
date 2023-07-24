@@ -1,15 +1,14 @@
 from celery import Celery
 from crawler import crawl, add_results_to_queue
 from parserlist import get_parser
-
+from celery.utils.log import get_task_logger
 
 queue_name = 'celery'
 app = Celery(
     'tasks',
-    broker_url='redis://127.0.0.1:6379/1'
+    broker_url='redis://127.0.0.1:6379/1',
 )
 app_client = app.connection().channel().client
-
 
 @app.task
 def queue_url(url, maximum_items):
